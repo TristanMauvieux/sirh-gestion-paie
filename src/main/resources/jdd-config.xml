@@ -24,6 +24,12 @@
 				<ref bean="ep37"/>				
 			</list>
 		</property>
+		<property name="cotisationsImposables">
+			<list value-type="dev.paie.entite.Cotisation">
+				<ref bean="sp01"/>
+				<ref bean="sp02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="bulletin1" class="dev.paie.entite.BulletinSalaire">
@@ -32,6 +38,7 @@
 		<property name="remunerationEmploye">
 		<ref bean="remu1"/>
 		</property>
+		
 		
 	</bean>
 		
@@ -43,6 +50,14 @@
 		<property name="profilRemuneration">
 		<ref bean="profil1"/>
 		</property>
+		<property name="grade">
+		<ref bean="grade1"/>
+		</property>
+	</bean>
+	
+	<bean id="grade1" class="dev.paie.entite.Grade">
+	<property name="nbHeuresBase" value="151.67"></property>
+	<property name="tauxBase" value="11.0984"></property>
 	</bean>
 	
 	<bean id="entreprise1" class="dev.paie.entite.Entreprise">
@@ -53,5 +68,5 @@
 	
 	
 	<import resource="cotisations-non-imposables.xml"/>
-
+	<import resource="cotisations-imposables.xml"/>
 </beans>
