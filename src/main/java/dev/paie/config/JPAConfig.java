@@ -14,7 +14,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@Import(DataSourceMySQLConfif.class)
+@Import(HerokuDBConfig.class)
 public class JPAConfig {
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
