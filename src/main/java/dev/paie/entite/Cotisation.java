@@ -5,20 +5,21 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Cotisation {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@Column(name = "code", length = 255, nullable = false)
 	private String code;
 	@Column(name = "libelle", length = 255, nullable = false)
 	private String libelle;
-	@Column(name = "taux_salarial", nullable = false)
+	@Column(name = "taux_salarial", nullable = true)
 	private BigDecimal tauxSalarial;
-	@Column(name = "taux_patronal", nullable = false)
+	@Column(name = "taux_patronal", nullable = true)
 	private BigDecimal tauxPatronal;
 
 	public String getCode() {
