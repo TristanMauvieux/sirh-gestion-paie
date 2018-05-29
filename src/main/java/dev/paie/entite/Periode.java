@@ -1,12 +1,14 @@
 package dev.paie.entite;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Periode {
@@ -17,6 +19,8 @@ public class Periode {
 	private LocalDate dateDebut;
 	@Column(name = "dateFin")
 	private LocalDate dateFin;
+	@Transient
+	private String libelle;
 
 	public LocalDate getDateDebut() {
 		return dateDebut;
@@ -40,6 +44,11 @@ public class Periode {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getLibelle() {
+		return "" + dateDebut.format(DateTimeFormatter.ISO_LOCAL_DATE) + " - "
+				+ dateFin.format(DateTimeFormatter.ISO_LOCAL_DATE);
 	}
 
 }
