@@ -55,8 +55,14 @@ public class RemunerationEmployerController {
 
 	@RequestMapping(method = RequestMethod.POST, path = "/creer")
 	public ModelAndView setupForm(@ModelAttribute("employer") RemunerationEmploye employe) {
+		/*
+		 * RestTemplate rt = new RestTemplate(); Collegue result =
+		 * rt.getForObject(
+		 * "http://collegues-api.cleverapps.io/collegues?matricule={matricule}",
+		 * Collegue.class, employe.getMatricule()); if (result != null) {
+		 */
 		this.repoRemu.save(employe);
-
+		// }
 		return listeEmployer();
 	}
 }
